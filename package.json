@@ -1,5 +1,5 @@
 {
-  "name": "jobsara--fornt-ripo",
+  "name": "jobsara--fornt",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,20 +10,30 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/react": "^3.22.0",
+    "@mui/material": "^7.2.0",
+    "@reactour/tour": "^3.8.0",
+    "@tanstack/react-query": "^5.81.5",
+    "axios": "^1.10.0",
+    "formik": "^2.4.6",
+    "motion": "^12.23.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-hot-toast": "^2.5.2",
+    "react-router-dom": "^7.6.3",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.30.1",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "@vitejs/plugin-react": "^4.6.0",
-    "eslint": "^9.30.1",
+    "@eslint/js": "^9.25.0",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
-    "globals": "^16.3.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.35.1",
-    "vite": "^7.0.4"
+    "typescript-eslint": "^8.30.1",
+    "vite": "^6.3.5"
   }
 }
