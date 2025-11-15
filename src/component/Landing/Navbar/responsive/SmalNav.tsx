@@ -10,20 +10,15 @@ import CloseImg from "../../../assets/Landing/Close.png";
 import Moonpic from "../../../assets/Landing/Moon.png";
 import { useNavigate } from "react-router-dom";
 
-interface NavItem {
-  Addres: string;
-  Value: string;
-}
-
-// Define the props interface for the component
-interface SmallsideNavProps {
-  NavData: NavItem[];
-  setNavData: React.Dispatch<React.SetStateAction<NavItem[]>>;
-}
-
-const MobyleNav: React.FC<SmallsideNavProps> = ({ NavData }) => {
+const SmallNav: React.FC = () => {
+  const [NavData, setNavData] = React.useState([
+    { id: "4", Value: "درباره ما", Addres: "/AboutmyPage" },
+    { id: "3", Value: " وبلاگ ها", Addres: "/webloGPage" },
+    { id: "2", Value: "شرکت‌های برتر", Addres: "/BestcompanyPage" },
+    { id: "1", Value: "جستجوی مشاغل", Addres: "/prouductPage" },
+  ]);
   const [Menu, setMenu] = React.useState(false);
-  const [Darck, setDarck] = React.useState(false);
+
   const MotionBox = motion(Box);
   const navigat = useNavigate();
 
@@ -79,7 +74,6 @@ const MobyleNav: React.FC<SmallsideNavProps> = ({ NavData }) => {
           transition: "0.5s",
           border: "solid 1px #274755ff,",
           zIndex: "100",
-         
         }}
       >
         <Box sx={{ position: "relative", width: "100%", height: "100px" }}>
@@ -148,14 +142,13 @@ const MobyleNav: React.FC<SmallsideNavProps> = ({ NavData }) => {
             width: "100%",
             height: "auto",
             display: "flex",
-            flexDirection: 'column',
+            flexDirection: "column",
             gap: "10px",
             fontFamily: "Peyda, sans-serif",
-            padding:1,
-            fontSize:"20px",
-            mt:"30%"
+            padding: 1,
+            fontSize: "20px",
+            mt: "30%",
           }}
- 
           id="menuValu"
         >
           {NavData.map((item, index) => {
@@ -166,8 +159,7 @@ const MobyleNav: React.FC<SmallsideNavProps> = ({ NavData }) => {
                   onClick={() => {
                     navigat(item.Addres);
                   }}
-                  sx={{ margin: '0 auto 10px ', cursor:"pointer"}}
-                  
+                  sx={{ margin: "0 auto 10px ", cursor: "pointer" }}
                   component={"p"}
                 >
                   {item.Value}
@@ -181,4 +173,4 @@ const MobyleNav: React.FC<SmallsideNavProps> = ({ NavData }) => {
   );
 };
 
-export { MobyleNav };
+export { SmallNav };

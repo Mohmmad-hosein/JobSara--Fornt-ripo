@@ -1,9 +1,12 @@
 import React from "react";
-import { Header } from "../Navbar/Header";
-import { Section } from "./section/responsive/section";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { Icon } from "@mui/material";
+import { Fotter } from "./fotter/foter";
+import { BigsideNav } from "./Navbar/responsive/BigNav";
+import { BigSection } from "./section/responsive/Bigsection";
+import { SmallSection } from "./section/responsive/smallsection";
+import { SmallFotter } from "./fotter/Smallfoter";
+
 
 interface userobject {
   Token: any;
@@ -15,7 +18,7 @@ const LandingPage: React.FC<userobject> = () => {
   const ClientHandeler = async () => {
     const GetipSystem = await axios.get("https:api.ipify.org/?format=json");
 
-    const saveToken = localStorage.setItem("Tokenuser", "");
+    const saveToken = localStorage.setItem("Tokenuser", "token");
     const DarckModevalu = localStorage.setItem("Darckmode", "false");
     const SaveIp = localStorage.setItem("ip", `${GetipSystem.data.ip}`);
     const InPassword = localStorage.setItem("Pass", "");
@@ -37,9 +40,10 @@ const LandingPage: React.FC<userobject> = () => {
 
   return (
     <>
-      
-      <Header />
-      <Section />
+      {/* <BigsideNav/>
+      <BigSection/> */}
+      {/* <Fotter/> */}
+      <SmallFotter/>
     </>
   );
 };

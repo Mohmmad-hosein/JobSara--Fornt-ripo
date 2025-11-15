@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
-import img from "../../../../assets/Landing/section.png";
+import img from "../../../../assets/Landing/section.png"
 
 const BigSection = () => {
   const Countelm: string = "14325";

@@ -1,26 +1,23 @@
 import React from "react";
 import { Box } from "@mui/material";
-import Logo from "../../../assets/Landing/Logo.png";
+import Logo from '../../../../assets/Landing/Logo.png'
 import { useNavigate } from "react-router-dom";
 
 
-// Define the type for a single navigation item
-interface NavItem {
-  Addres: string;
-  Value: string;
-}
-
-// Define the props interface for the component
-interface BigsideNavProps {
-  NavData: NavItem[];
-  setNavData: React.Dispatch<React.SetStateAction<NavItem[]>>;
-}
 
 
 
 
 
-const BigsideNav: React.FC<BigsideNavProps> = ({ NavData, setNavData }) => {
+
+const BigsideNav: React.FC = () => {
+    const [NavData, setNavData] = React.useState([
+      { id: "4", Value: "درباره ما", Addres: "/AboutmyPage" },
+      { id: "3", Value: " وبلاگ ها", Addres: "/webloGPage" },
+      { id: "2", Value: "شرکت‌های برتر", Addres: "/BestcompanyPage" },
+      { id: "1", Value: "جستجوی مشاغل", Addres: "/prouductPage" },
+    ]);
+  
   const navigate = useNavigate();
 
   return (
