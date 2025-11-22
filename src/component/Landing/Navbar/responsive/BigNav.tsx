@@ -1,24 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box } from "@mui/material";
-import Logo from '../../../../assets/Landing/Logo.png'
+import { motion, useScroll } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-
-
-
-
-
-
-
+import Logo from "../../../../assets/Landing/Logo.png";
+import Moon from "../../../../assets/Landing/Moon.png";
+import DarckLogo from "../../../../assets/Landing/DarckLogo.png";
+import Registration from "../../../../assets/Landing/auth.png";
 
 const BigsideNav: React.FC = () => {
-    const [NavData, setNavData] = React.useState([
-      { id: "4", Value: "درباره ما", Addres: "/AboutmyPage" },
-      { id: "3", Value: " وبلاگ ها", Addres: "/webloGPage" },
-      { id: "2", Value: "شرکت‌های برتر", Addres: "/BestcompanyPage" },
-      { id: "1", Value: "جستجوی مشاغل", Addres: "/prouductPage" },
-    ]);
-  
+  const [NavData, setNavData] = React.useState([
+    { id: "1", Value: "ثبت آگهی", Addres: "/PostingPage" },
+    { id: "4", Value: "درباره ما", Addres: "/AboutmyPage" },
+    { id: "3", Value: " وبلاگ ها", Addres: "/webloGPage" },
+    { id: "2", Value: "شرکت‌های برتر", Addres: "/BestcompanyPage" },
+    { id: "1", Value: "جستجوی مشاغل", Addres: "/prouductPage" },
+  ]);
+
+  const { scrollYProgress } = useScroll();
+ 
   const navigate = useNavigate();
+  let [Drackmode,SetDarckmode] =useState (localStorage.getItem("Darckmode") || false )
+  const MotionBox = motion(Box);
 
   return (
     <>
@@ -27,16 +29,15 @@ const BigsideNav: React.FC = () => {
         sx={{
           width: 1,
           height: "100px",
-          backgroundColor: "#fff",
+          backgroundColor: Drackmode ? "#383636ff" : "#fff",
           boxShadow: 1,
         }}
-        data-aos="fade-down"
       >
         <Box
           component="img"
           id="LogoHeader"
           sx={{ position: "relative", left: "85%", top: "30%" }}
-          src={Logo}
+          src={Drackmode ? DarckLogo : Logo}
           alt="Logo"
         ></Box>
         <Box
@@ -48,12 +49,11 @@ const BigsideNav: React.FC = () => {
             position: "relative",
             left: { sm: "30%", md: "47%", lg: "50%" },
             height: "40px",
-            backgroundColor: "#fff",
             width: { md: "33%", lg: "33%", xl: "33%", sm: "53%" },
             bottom: "10px",
             justifyContent: "center",
             justifyItems: "center",
-            top: "-30%",
+            top: "-22px",
           }}
         >
           {NavData.map((item, index) => {
@@ -71,12 +71,16 @@ const BigsideNav: React.FC = () => {
                     md: "15px",
                     sm: "14px",
                   },
-                  color: "#545454",
+                  color: Drackmode ? "#fff" : "#2a2828ff",
                   fontFamily: "Peyda, sans-serif",
                   position: "relative",
-                  top: "10px",
                   cursor: "pointer",
                   transition: ".5s",
+                  "&:hover": {
+                    textShadow: Drackmode
+                      ? " 2px 2px 4px #eae3e3ff"
+                      : " 0px 0px 2px #4e4b4bff",
+                  },
                 }}
                 component={"p"}
               >
@@ -99,122 +103,87 @@ const BigsideNav: React.FC = () => {
           }}
         >
           <Box
-            id="add and boss"
-            component={"div"}
             sx={{
-              display: "flex",
-              gap: "5px",
+              width: "auto",
+              height: "6vh",
               position: "relative",
-              top: { sm: "10px", lg: "10", xl: "0" },
-            }}
-          >
-            <Box
-              component={"p"}
-              sx={{
-                fontWeight: "bold",
-                fontFamily: "Peyda, sans-serif",
-                color: "#545454",
-                fontSize: { sm: "10px", xl: "100%", lg: "60%" },
-              }}
-            >
-              ثبت آگهی
-            </Box>
-            <Box
-              component={"p"}
-              sx={{
-                fontWeight: "bold",
-                fontFamily: "Peyda, sans-serif",
-                color: "#545454",
-                fontSize: { sm: "10px", xl: "100%", lg: "60%" },
-              }}
-            >
-              /
-            </Box>
-            <Box
-              component={"p"}
-              sx={{
-                fontWeight: "bold",
-                fontFamily: "Peyda, sans-serif",
-                color: "#545454 ",
-                fontSize: { sm: "10px", xl: "100%", lg: "60%" },
-              }}
-            >
-              بخش کار فرمایان
-            </Box>
-          </Box>
-          <Box
-            component={"p"}
-            sx={{
-              position: "relative",
-              top: "-4px",
-              fontSize: "20px",
-              fontFamily: "Peyda, sans-serif",
-              color: "#fff",
-              opacity: "0.5",
-              boxShadow: 1,
-              display: "flex",
-            }}
-          >
-            |
-          </Box>
-          <Box
-            id="sighen up and login"
-            component={"div"}
-            sx={{
-              display: "flex",
-              gap: "5px",
-              width: "35%",
-              backgroundColor: "#38BDF8",
-              height: "50px",
-              position: "relative",
-              top: "10px",
+              top: "10%",
               borderRadius: "10px",
+              display: "flex",
+              gap: "5px",
             }}
+            component={"div"}
+          >
+            <MotionBox
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.4,
+                scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+              }}
+              sx={{
+                position: "relative",
+                width: "49px",
+                height: "80%",
+                bgcolor: Drackmode ? "#145b81cc" : "#38BDF8",
+                top: "5px",
+                left: "5%",
+                borderRadius: "80%",
+                display: "flex",
+                justifyContent: "center",
+                justifyItems: "center",
+                cursor: "pointer",
+              }}
+             onClick={()=>{SetDarckmode(!Drackmode)}}
+            >
+              <Box
+                sx={{
+                  position: "relative",
+                  rotate: "-30deg",
+                  width: "30px",
+                  height: "30px",
+                  top: "10px",
+                  borderRadius: "100%",
+                }}
+                component={"img"}
+                src={Moon}
+              />
+            </MotionBox>
+          </Box>
+          <Box
+            sx={{
+              position: "relative",
+              width: "30%",
+              height: "80%",
+              top: "10px",
+              display: "flex",
+              justifyContent: "center",
+              justifyItems: "center",
+              left: "10%",
+              cursor: "pointer",
+            }}
+            component={"div"}
           >
             <Box
-              component={"p"}
-              sx={{
-                fontSize: { sm: "10px", xl: "80%", lg: "60%" },
-                color: "#545454",
-                fontFamily: "Peyda, sans-serif",
-                position: "relative",
-                left: "15%",
-                fontWeight: "bold",
+              sx={{ position: "relative", width: "100%", height: "100%" }}
+              component={"img"}
+              src={Registration}
+              onClick={() => {
+                navigate("/RegesterHandeler");
               }}
-            >
-              ثبت نام
-            </Box>
-            <Box
-              component={"div"}
-              sx={{
-                backgroundColor: "#fff",
-                width: "49px",
-                height: "2px",
-                rotate: "110deg",
-                m: "0",
-                p: "0",
-                position: "relative",
-                top: "24px",
-                left: "1%",
-                padding: ".2px",
-              }}
-            ></Box>
-            <Box
-              component={"p"}
-              sx={{
-                fontSize: { sm: "14px", xl: "100%", lg: "80%" },
-                color: "#545454",
-                fontFamily: "Peyda, sans-serif",
-                position: "relative",
-                left: "-10px",
-                fontWeight: "bold",
-              }}
-            >
-              ورود
-            </Box>
+            />
           </Box>
         </Box>
       </Box>
+      <MotionBox
+        sx={{
+          position:"sticky",
+          height: "4px",
+          borderRadius:"10px",
+          bgcolor:Drackmode ? "#bc4408ff":"#38BDF8",
+          transform: `scaleX(${scrollYProgress})`,
+        }}
+      ></MotionBox>
     </>
   );
 };
