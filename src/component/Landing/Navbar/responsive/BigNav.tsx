@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useContext } from "react";
+import { NewContext } from "../../../Context/context";
 import { Box } from "@mui/material";
 import { motion, useScroll } from "framer-motion";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +10,9 @@ import DarckLogo from "../../../../assets/Landing/DarckLogo.png";
 import Registration from "../../../../assets/Landing/auth.png";
 
 const BigsideNav: React.FC = () => {
+
+  const data=useContext(NewContext)
+
   const [NavData, setNavData] = React.useState([
     { id: "1", Value: "ثبت آگهی", Addres: "/PostingPage" },
     { id: "4", Value: "درباره ما", Addres: "/AboutmyPage" },
@@ -19,7 +24,7 @@ const BigsideNav: React.FC = () => {
   const { scrollYProgress } = useScroll();
  
   const navigate = useNavigate();
-  let [Drackmode,SetDarckmode] =useState (localStorage.getItem("Darckmode") || false )
+  const Drackmode=data?.darkMode || false 
   const MotionBox = motion(Box);
 
   return (
@@ -134,7 +139,7 @@ const BigsideNav: React.FC = () => {
                 justifyItems: "center",
                 cursor: "pointer",
               }}
-             onClick={()=>{SetDarckmode(!Drackmode)}}
+             onClick={()=>{data?.setDarkMode(!Drackmode)}}
             >
               <Box
                 sx={{
@@ -180,7 +185,7 @@ const BigsideNav: React.FC = () => {
           position:"sticky",
           height: "4px",
           borderRadius:"10px",
-          bgcolor:Drackmode ? "#bc4408ff":"#38BDF8",
+          bgcolor:Drackmode ? "#38BDF8":"#f59f0bac",
           transform: `scaleX(${scrollYProgress})`,
         }}
       ></MotionBox>

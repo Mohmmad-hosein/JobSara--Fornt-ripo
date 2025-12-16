@@ -1,8 +1,12 @@
 import React from "react";
 import { Box } from "@mui/material";
 import { useState } from "react";
+import { NewContext } from "../../Context/context";
+import { useContext } from "react";
 
 const Freequestions = () => {
+  const data = useContext(NewContext);
+
   const [Data, SetData] = useState([
     { id: "1", text: "whyTypeScript" },
     { id: "1", text: "whyjobsara" },
@@ -10,6 +14,9 @@ const Freequestions = () => {
     { id: "1", text: "bestCorse" },
     { id: "1", text: "bestCorse" },
   ]);
+
+  const DarckMode = data?.darkMode || false;
+
   return (
     <>
       <Box
@@ -34,7 +41,7 @@ const Freequestions = () => {
                 sx={{
                   width: "90%",
                   height: "10vh",
-                  bgcolor: "#cccc",
+                  bgcolor: DarckMode ? "#393939": "#cccc",
                   top: "10px",
                   position: "relative",
                   left: "5%",
@@ -51,11 +58,12 @@ const Freequestions = () => {
                     height: "50px",
                     width: "50px",
                     borderRadius: "100%",
-                    bgcolor: "#131111cc",
+                    bgcolor: DarckMode ? "#fff" : "#c9bdbdcc",
+                    
                   }}
                   component={"div"}
                 ></Box>
-                <Box sx={{ fontFamily: "Peyda, sans-serif" }} component={"p"}>
+                <Box sx={{ fontFamily: "Peyda, sans-serif",color:DarckMode ?"#fff":"#000" }} component={"p"}>
                   {item.text}
                 </Box>
               </Box>
