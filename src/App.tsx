@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React, {  useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { LandingPage } from "./component/Landing/LandingPage";
 import "./index.css";
@@ -6,19 +6,24 @@ import "./App.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import toast, { Toaster } from "react-hot-toast";
+import { SigenUp} from "./component/Sighenup/Sighenup"
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: LandingPage  ,
+    Component: LandingPage   ,
   },
+  {
+    path:"/Sighenup",
+    Component: SigenUp,
+  }
 ]);
 
 const App: React.FC = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Animation duration
-      once: true, // Whether animation should happen only once
+      duration: 1000,
+      once: true, 
     });
   }, []);
   return (
