@@ -1,8 +1,5 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Logo from "../../../assets/Landing/Logo.png";
+
 import { Box } from "@mui/material";
 import { motion } from "framer-motion";
 import MenuPic from "../../../assets/Landing/Menu.png";
