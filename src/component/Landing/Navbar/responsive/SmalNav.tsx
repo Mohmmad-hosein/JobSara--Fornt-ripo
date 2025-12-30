@@ -2,9 +2,9 @@ import * as React from "react";
 
 import { Box } from "@mui/material";
 import { motion } from "framer-motion";
-import MenuPic from "../../../assets/Landing/Menu.png";
-import CloseImg from "../../../assets/Landing/Close.png";
-import Moonpic from "../../../assets/Landing/Moon.png";
+import MenuPic from "../../../../assets/Landing/Menu.png";
+import CloseImg from "../../../../assets/Landing/Close.png";
+import Moonpic from "../../../../assets/Landing/Moon.png";
 import { useNavigate } from "react-router-dom";
 
 const SmallNav: React.FC = () => {
