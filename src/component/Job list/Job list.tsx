@@ -8,7 +8,7 @@ import close from "../../assets/Landing/Close.png";
 import { JobFilter } from "./filterJob";
 
 export const Joblist = () => {
-  const [showModul, setShowModul] = React.useState(true);
+  const [showModul, setShowModul] = React.useState(false);
   return (
     <>
       <Box
