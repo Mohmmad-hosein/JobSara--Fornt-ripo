@@ -11,9 +11,12 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^3.22.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "@mui/material": "^7.2.0",
     "@reactour/tour": "^3.8.0",
     "@tanstack/react-query": "^5.81.5",
+    "aos": "^2.3.4",
     "axios": "^1.10.0",
     "formik": "^2.4.6",
     "motion": "^12.23.0",
