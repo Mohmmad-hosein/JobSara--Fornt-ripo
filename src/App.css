@@ -1,7 +1,2 @@
-.MobilScreen{
-  visibility:hidden;
-}
+@import "tailwindcss";
 
-.DesktopScreen{
-  visibility:hidden;
-}
